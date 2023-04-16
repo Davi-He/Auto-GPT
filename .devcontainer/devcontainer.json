@@ -1,14 +1,15 @@
 {
+  "name": "Auto-GPT",
   "build": {
-    "dockerfile": "./Dockerfile",
+    "dockerfile": "./Dockerfile", 
     "context": "."
   },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": "true",
       "username": "vscode",
-      "userUid": "1000",
-      "userGid": "1000",
+      "userUid": "1001",
+      "userGid": "1001",
       "upgradePackages": "true"
     },
     "ghcr.io/devcontainers/features/python:1": "none",
@@ -20,6 +21,10 @@
   },
   // Configure tool-specific properties.
   "customizations": {
+      "dockerEnv": {
+        "http_proxy": "http://100.64.1.46:18888",
+        "https_proxy": "http://100.64.1.46:18888"
+      },
     // Configure properties specific to VS Code.
     "vscode": {
       // Set *default* container specific settings.json values on container create.

@@ -2,6 +2,13 @@
 ARG VARIANT=3-bullseye
 FROM python:3.8
 
+# 设置代理环境变量
+ARG http_proxy=http://100.64.1.46:18888/
+ARG https_proxy=http://100.64.1.46:18888/
+
+ENV HTTP_PROXY=$http_proxy
+ENV HTTPS_PROXY=$https_proxy
+
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # Remove imagemagick due to https://security-tracker.debian.org/tracker/CVE-2019-10131
     && apt-get purge -y imagemagick imagemagick-6-common 
